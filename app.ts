@@ -165,9 +165,7 @@ class LowStockWarningSubscriber implements ISubscriber {
       return;
     }
 
-    if (machine.stockLevel >= 3) {
-      console.info(`Machine: ${machine.id}'s stock level is OK`);
-    } else {
+    if (!machine.isStockLevelOk()) {
       console.warn(`Machine: ${machine.id}'s stock level is LOW`);
     }
   }
@@ -187,10 +185,8 @@ class StockLevelOkSubscriber implements ISubscriber {
       return;
     }
 
-    if (machine.stockLevel >= 3) {
+    if (machine.isStockLevelOk()) {
       console.info(`Machine: ${machine.id}'s stock level is OK`);
-    } else {
-      console.warn(`Machine: ${machine.id}'s stock level is LOW`);
     }
   }
 }
