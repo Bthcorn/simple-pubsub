@@ -3,7 +3,8 @@
 1. Improved publish logic. <br>
 
 ```typescript
-// This logic was written using if-else to identify the subscriber type which is totally not a efficient way. It is difficult for maintainability and extensibility e.g. adding new type of subscriber.
+// This logic was written using if-else to identify the subscriber type which is totally not a efficient way.
+// It is difficult for maintainability and extensibility e.g. adding new type of subscriber.
 publish(event: IEvent): void {
     const subscriber = this.subscribers.get(event.type());
     if (!subscriber) {
@@ -56,7 +57,8 @@ publish(event: IEvent): void {
 3. Additionally, **Made some refactors to reduce some duplication and redundancy** of the code in the following examples.
 
 ```typescript
-// Make abstract class for concreate subscriber classes to inherit from because they also need the similar attributes, methods, and contructors.
+// Make abstract class for concreate subscriber classes to inherit from
+// because they also need the similar attributes, methods, and contructors.
 export abstract class BaseSubscriber implements ISubscriber {
   public machineRepository: MachineRepository;
   public logger: Logger;
